@@ -107,3 +107,22 @@ void QuickSort2(int a[],int N)
 {
 	QuickSort2(a,0,N-1);
 }
+
+
+//快速选择--利用快排
+void QuickSelect(int a[],int left,int right,int K)
+{
+	if(left<right)
+	{
+		int p=position1(a,left,right);
+		if(K<p+1)
+			QuickSelect(a,left,p-1,K);
+		else if(K>p+1)
+			QuickSelect(a,p+1,right,K);
+	}
+}
+
+void QuickSelect(int a[],int N,int K)
+{
+	QuickSelect(a,0,N-1,K);
+}
